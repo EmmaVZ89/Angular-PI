@@ -1,1 +1,9 @@
-<p>here goes an employee</p>
+<p>Name: {{ name }}</p>
+<p>Last name: {{ lastName }}</p>
+<p>Age: {{ age < 18 ? "is a minor" : "he's older" }}</p>
+<p>Company: {{ company.value }}</p>
+
+Introduce the company <input type="text" #company (keyup)="getCompanyKeyUp(company.value)"/>
+<br />
+<br />
+<input type="button" value="Click!" (click)="getCompany(company.value)" />
