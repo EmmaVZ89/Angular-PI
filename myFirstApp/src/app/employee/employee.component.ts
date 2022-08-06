@@ -23,6 +23,14 @@ export class EmployeeComponent implements OnInit {
   getCompanyKeyUp(company:string){
   }
 
+  enabledInput = true;
+
+  registeredUser = false;
+
+  getUserRegistered(){
+    this.registeredUser = true;
+  }
+
   constructor() {}
   ngOnInit(): void {}
 }

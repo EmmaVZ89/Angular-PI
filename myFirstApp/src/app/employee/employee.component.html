@@ -3,7 +3,17 @@
 <p>Age: {{ age < 18 ? "is a minor" : "he's older" }}</p>
 <p>Company: {{ company.value }}</p>
 
-Introduce the company <input type="text" #company (keyup)="getCompanyKeyUp(company.value)"/>
+Introduce the company
+<input
+  type="text"
+  #company
+  (keyup)="getCompanyKeyUp(company.value)"
+  [disabled]="enabledInput"
+/>
+<br />
+<br />
+Registrado: <input type="checkbox" id="login" [checked]="registeredUser" />
+{{ getUserRegistered() }}
 <br />
 <br />
 <input type="button" value="Click!" (click)="getCompany(company.value)" />
