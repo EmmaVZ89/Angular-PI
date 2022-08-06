@@ -12,8 +12,26 @@ Introduce the company
 />
 <br />
 <br />
-Registrado: <input type="checkbox" id="login" [checked]="registeredUser" />
-{{ getUserRegistered() }}
+{{ registerText }}
 <br />
 <br />
-<input type="button" value="Click!" (click)="getCompany(company.value)" />
+Registered:
+<input
+  type="radio"
+  name="registerUser"
+  value="yes"
+  id="login"
+  [checked]="registeredUser"
+  (click)="setRegisteredUser($event)"
+/>
+No Registered:
+<input
+  type="radio"
+  name="registerUser"
+  value="no"
+  (click)="setRegisteredUser($event)"
+/>
+{{ getRegisteresUser() }}
+<br />
+<br />
+<!-- <input type="button" value="Click!" (click)="getCompany(company.value)" /> -->
