@@ -11,7 +11,7 @@ export class EmployeeComponent implements OnInit {
   name = 'Emmanuel';
   lastName = 'Zelarayan';
   age = 33;
-  // company = "Home";
+  company = "Google";
 
   // getAge() {
   //   return this.age;
@@ -38,6 +38,10 @@ export class EmployeeComponent implements OnInit {
       this.registerText = 'There is no registered user';
     }
   }
+
+  // changeCompany(event:Event) {
+  //   this.company = (<HTMLInputElement>event.target).value;
+  // }
 
   constructor() {}
   ngOnInit(): void {}

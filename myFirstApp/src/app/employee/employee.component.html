@@ -1,19 +1,18 @@
 <p>Name: {{ name }}</p>
 <p>Last name: {{ lastName }}</p>
 <p>Age: {{ age < 18 ? "is a minor" : "he's older" }}</p>
-<p>Company: {{ company.value }}</p>
+<p>Company: {{ company }}</p>
 
-Introduce the company
+<!-- Introduce the company
 <input
   type="text"
   #company
   (keyup)="getCompanyKeyUp(company.value)"
   [disabled]="enabledInput"
-/>
-<br />
-<br />
+/> -->
+<!-- Introduce the company: <input type="text"(input)="changeCompany($event)"/> -->
+Introduce the company: <input type="text" [(ngModel)]="company" /> <br /><br /> <!-- Banana in Box -->
 {{ registerText }}
-<br />
 <br />
 Registered:
 <input
