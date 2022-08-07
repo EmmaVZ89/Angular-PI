@@ -1,0 +1,26 @@
+<h1 style="text-align: center">{{ title }}</h1>
+
+<form>
+  <input type="text" name="name" [(ngModel)]="name" /><br /><br />
+  <input type="text" name="lastName" [(ngModel)]="lastName" /><br /><br />
+  <input type="submit" value="Submit" (click)="userRegister()" />
+</form>
+
+<br />
+
+<p *ngIf="registered; else unregistered">
+  {{ message }}. Name: {{ name }}, Last Name: {{ lastName }}
+</p>
+
+<ng-template #unregistered>
+  <p>No one is registered</p>
+</ng-template>
+
+<br /><br />
+
+<ul>
+  <li *ngFor="let entrie of entries; let i = index">
+    <span style="font-size: larger; font-weight: bold">{{ entrie.title }}</span>
+    . Entrie {{i+1}}
+  </li>
+</ul>
