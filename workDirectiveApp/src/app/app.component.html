@@ -3,6 +3,7 @@
 <form>
   <input type="text" name="name" [(ngModel)]="name" /><br /><br />
   <input type="text" name="lastName" [(ngModel)]="lastName" /><br /><br />
+  <input type="text" name="position" [(ngModel)]="position" /><br /><br />
   <input type="submit" value="Submit" (click)="userRegister()" />
 </form>
 
@@ -10,7 +11,9 @@
 
 <!-- ngIf directive -->
 <p *ngIf="registered; else unregistered">
-  {{ message }}. Name: {{ name }}, Last Name: {{ lastName }}
+  {{ message }}. Name: {{ name }}, Last Name: {{ lastName }}, Position:
+  <!-- <span [ngStyle]="{ color: position=='president' ? 'red' : 'black' }">{{ position }}</span> -->
+  <span [ngClass]="{ forPresident: position == 'president' }">{{ position }}</span>
 </p>
 
 <ng-template #unregistered>

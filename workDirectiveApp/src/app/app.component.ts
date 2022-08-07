@@ -11,6 +11,7 @@ export class AppComponent {
   registered = false;
   name: string = '';
   lastName: string = '';
+  position: string = '';
   entries: any[];
 
   constructor() {
