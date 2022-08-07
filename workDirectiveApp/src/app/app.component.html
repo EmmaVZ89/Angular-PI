@@ -8,6 +8,7 @@
 
 <br />
 
+<!-- ngIf directive -->
 <p *ngIf="registered; else unregistered">
   {{ message }}. Name: {{ name }}, Last Name: {{ lastName }}
 </p>
@@ -18,9 +19,10 @@
 
 <br /><br />
 
+<!-- ngFor directive -->
 <ul>
   <li *ngFor="let entrie of entries; let i = index">
     <span style="font-size: larger; font-weight: bold">{{ entrie.title }}</span>
-    . Entrie {{i+1}}
+    . Entrie {{ i + 1 }}
   </li>
 </ul>

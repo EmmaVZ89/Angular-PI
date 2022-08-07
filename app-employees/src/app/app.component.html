@@ -1,0 +1,43 @@
+
+<div class="container">
+  <div style="text-align: center;" class="col"><h1>{{title}}</h1></div>
+  <br><br>
+
+  <form class="form-group row">
+    <div class="form-group col-md-3">
+      <label for="name">Name: </label>
+      <input type="text" name="name" id="name" placeholder="Name" class="form-control" [(ngModel)]="nameField">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="lastName">Last Name: </label>
+      <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control" [(ngModel)]="lastNameField">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="position">Position: </label>
+      <input type="text" name="position" id="position" placeholder="Position" class="form-control" [(ngModel)]="positionField">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="salary">Salary: </label>
+      <input type="text" name="salary" id="salary" placeholder="Salary" class="form-control" [(ngModel)]="salaryField">
+    </div>
+    
+    <div class="col mt-3">
+      <button type="submit" class="btn btn-primary" (click)="addEmployee()"> Add Employee </button>
+    </div>
+  </form>
+</div>
+
+<br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let employee of employees; let i = index">
+        {{ i + 1 }}: {{ employee.name }}
+        {{ employee.lastName }}
+        {{ employee.position }}
+        {{ employee.salary }}
+      </div>
+    </div>
+  </div>
+</div>
