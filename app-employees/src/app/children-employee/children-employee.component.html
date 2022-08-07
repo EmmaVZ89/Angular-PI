@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div>
+        {{ index + 1 }}: {{ employeeFromList.name }}
+        {{ employeeFromList.lastName }}
+        {{ employeeFromList.position }}
+        {{ employeeFromList.salary }}
+      </div>
+      <ul style="list-style: none;">
+        <li *ngFor="let feature of arrayFeatures">{{feature}}</li>
+      </ul>
+    </div>
+    <app-features-employee (featuresEmployees)="addFeature($event)"></app-features-employee>
+  </div>
+</div>
