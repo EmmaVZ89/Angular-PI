@@ -16,6 +16,7 @@ import { UpdateComponentComponent } from './update-component/update-component.co
 import { CustomErrorComponent } from './custom-error/custom-error.component';
 import { DataServices } from './data.services';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponentComponent },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutComponentComponent },
   { path: 'contact', component: ContactComponentComponent },
   { path: 'update/:id', component: UpdateComponentComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: CustomErrorComponent },
 ];
 
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     AboutComponentComponent,
     ContactComponentComponent,
     UpdateComponentComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
