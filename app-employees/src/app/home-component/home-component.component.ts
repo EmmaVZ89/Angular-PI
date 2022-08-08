@@ -23,7 +23,12 @@ export class HomeComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.employees = this.employeeService.employees; // alternative
+    // this.employees = this.employeeService.employees; // alternative
+    this.employeeService.getEmployeesService().subscribe((myEmployees) => {
+      console.log(myEmployees);
+      this.employees = Object.values(myEmployees);
+      this.employeeService.setEmployees(this.employees);
+    });
   }
 
   addEmployee() {
