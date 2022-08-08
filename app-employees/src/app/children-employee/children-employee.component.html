@@ -6,11 +6,21 @@
         {{ employeeFromList.lastName }}
         {{ employeeFromList.position }}
         {{ employeeFromList.salary }}
+        &nbsp;&nbsp;
+        <a [routerLink]="['/update', index]" [queryParams]="{ action: '1' }">
+          Update
+        </a>
+        &nbsp;&nbsp;
+        <a [routerLink]="['/update', index]" [queryParams]="{ action: '2' }">
+          Delete
+        </a>
       </div>
-      <ul style="list-style: none;">
-        <li *ngFor="let feature of arrayFeatures">{{feature}}</li>
+      <ul style="list-style: none">
+        <li *ngFor="let feature of arrayFeatures">{{ feature }}</li>
       </ul>
     </div>
-    <app-features-employee (featuresEmployees)="addFeature($event)"></app-features-employee>
+    <app-features-employee
+      (featuresEmployees)="addFeature($event)"
+    ></app-features-employee>
   </div>
 </div>

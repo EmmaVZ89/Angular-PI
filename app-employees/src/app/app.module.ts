@@ -7,17 +7,36 @@ import { ChildrenEmployeeComponent } from './children-employee/children-employee
 import { EmployeeDataService } from './employee.data.service';
 import { FeaturesEmployeeComponent } from './features-employee/features-employee.component';
 import { ServicesEmployeesService } from './services-employees.service';
+import { HomeComponentComponent } from './home-component/home-component.component';
+import { ProjectsComponentComponent } from './projects-component/projects-component.component';
+import { AboutComponentComponent } from './about-component/about-component.component';
+import { ContactComponentComponent } from './contact-component/contact-component.component';
+import { RouterModule, Routes } from '@angular/router';
+import { UpdateComponentComponent } from './update-component/update-component.component';
+import { CustomErrorComponent } from './custom-error/custom-error.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponentComponent },
+  { path: 'projects', component: ProjectsComponentComponent },
+  { path: 'about', component: AboutComponentComponent },
+  { path: 'contact', component: ContactComponentComponent },
+  { path: 'update/:id', component: UpdateComponentComponent },
+  { path: '**', component: CustomErrorComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildrenEmployeeComponent,
-    FeaturesEmployeeComponent
+    FeaturesEmployeeComponent,
+    HomeComponentComponent,
+    ProjectsComponentComponent,
+    AboutComponentComponent,
+    ContactComponentComponent,
+    UpdateComponentComponent,
   ],
-  imports: [
-    BrowserModule, FormsModule
-  ],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [ServicesEmployeesService, EmployeeDataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

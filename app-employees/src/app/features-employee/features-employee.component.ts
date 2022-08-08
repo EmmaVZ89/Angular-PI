@@ -15,6 +15,6 @@ export class FeaturesEmployeeComponent implements OnInit {
 
   addFeatures(features: string) {
     // this.myService.showMessage(`New Feature: ${features}`);
-    // this.featuresEmployees.emit(features);
+    this.featuresEmployees.emit(features);
   }
 }

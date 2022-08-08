@@ -19,4 +19,21 @@ export class EmployeeDataService {
     );
     this.employees.push(employee);
   }
+
+  findEmployee(index: number) {
+    const employee: Employee = this.employees[index];
+    return employee;
+  }
+
+  updateEmployeeData(index:number, employee:Employee){
+    const employeeToUpdate = this.employees[index];
+    employeeToUpdate.name = employee.name;
+    employeeToUpdate.lastName = employee.lastName;
+    employeeToUpdate.position = employee.position;
+    employeeToUpdate.salary = employee.salary;
+  }
+
+  deleteEmployeeData(index:number){
+    this.employees.splice(index, 1);
+  }
 }

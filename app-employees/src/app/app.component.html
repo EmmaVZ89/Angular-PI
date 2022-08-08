@@ -1,68 +1,18 @@
-<div class="container">
-  <div style="text-align: center" class="col">
-    <h1>{{ title }}</h1>
-  </div>
-  <br /><br />
+<nav class="navbar navbar-expand-sm bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/projects">Projects</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/about">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/contact">Contact</a>
+    </li>
+  </ul>
+</nav>
 
-  <form class="form-group row">
-    <div class="form-group col-md-3">
-      <label for="name">Name: </label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Name"
-        class="form-control"
-        [(ngModel)]="nameField"
-      />
-    </div>
-    <div class="form-group col-md-3">
-      <label for="lastName">Last Name: </label>
-      <input
-        type="text"
-        name="lastName"
-        id="lastName"
-        placeholder="Last Name"
-        class="form-control"
-        [(ngModel)]="lastNameField"
-      />
-    </div>
-    <div class="form-group col-md-3">
-      <label for="position">Position: </label>
-      <input
-        type="text"
-        name="position"
-        id="position"
-        placeholder="Position"
-        class="form-control"
-        [(ngModel)]="positionField"
-      />
-    </div>
-    <div class="form-group col-md-3">
-      <label for="salary">Salary: </label>
-      <input
-        type="text"
-        name="salary"
-        id="salary"
-        placeholder="Salary"
-        class="form-control"
-        [(ngModel)]="salaryField"
-      />
-    </div>
-
-    <div class="col mt-3">
-      <button type="submit" class="btn btn-primary" (click)="addEmployee()">
-        Add Employee
-      </button>
-    </div>
-  </form>
-</div>
-
-<br /><br /><br />
-
-<!-- add children employee component -->
-<app-children-employee
-  *ngFor="let employee of employees; let i = index"
-  [employeeFromList]="employee"
-  [index]="i"
-></app-children-employee>
+<router-outlet></router-outlet>
