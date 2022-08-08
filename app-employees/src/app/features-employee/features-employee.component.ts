@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ServicesEmployeesService } from '../services-employees.service';
 
 @Component({
   selector: 'app-features-employee',
@@ -8,11 +9,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class FeaturesEmployeeComponent implements OnInit {
   @Output() featuresEmployees = new EventEmitter<string>();
 
-  constructor() {}
+  // constructor(private myService: ServicesEmployeesService) {}
 
   ngOnInit(): void {}
 
   addFeatures(features: string) {
-    this.featuresEmployees.emit(features);
+    // this.myService.showMessage(`New Feature: ${features}`);
+    // this.featuresEmployees.emit(features);
   }
 }
