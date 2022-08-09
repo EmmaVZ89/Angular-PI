@@ -20,7 +20,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userLogged | async">
           <a class="nav-link active" aria-current="page" href="#">
             <button data-text="Awesome" class="button">
               <span class="actual-text">&nbsp;Home&nbsp;</span>
@@ -30,7 +30,7 @@
             </button>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userLogged | async">
           <a class="nav-link active" aria-current="page" href="#">
             <button data-text="Awesome" class="button">
               <span class="actual-text">&nbsp;Quien&nbsp;Soy&nbsp;</span>
@@ -40,7 +40,7 @@
             </button>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userLogged | async">
           <a class="nav-link" href="#">
             <button data-text="Awesome" class="button">
               <span class="actual-text">&nbsp;Juegos&nbsp;</span>
@@ -50,7 +50,7 @@
             </button>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userLogged | async">
           <a class="nav-link" href="#">
             <button data-text="Awesome" class="button">
               <span class="actual-text">&nbsp;Chat&nbsp;</span>
@@ -60,7 +60,7 @@
             </button>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userLogged | async">
           <a class="nav-link" href="#">
             <button data-text="Awesome" class="button">
               <span class="actual-text">&nbsp;Encuesta&nbsp;</span>
@@ -81,6 +81,18 @@
         />
         {{ user.email }}
       </a>
+      <button class="btn-login" *ngIf="!(userLogged | async)">
+        REGISTRO
+        <div class="arrow-wrapper">
+          <div class="arrow"></div>
+        </div>
+      </button>
+      <button class="btn-logout" *ngIf="userLogged | async" (click)="logout()">
+        LOGOUT
+        <div class="arrow-wrapper">
+          <div class="arrow"></div>
+        </div>
+      </button>
     </div>
   </div>
 </nav>
