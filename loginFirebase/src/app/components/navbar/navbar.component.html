@@ -1,6 +1,12 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">
+      <img
+        src="../../../assets/icono-nav.png"
+        class="imagenNav"
+        alt="icono principal"
+      />
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -15,30 +21,54 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Dropdown
+          <a class="nav-link active" aria-current="page" href="#">
+            <button data-text="Awesome" class="button">
+              <span class="actual-text">&nbsp;Home&nbsp;</span>
+              <span class="hover-text" aria-hidden="true"
+                >&nbsp;Home&nbsp;</span
+              >
+            </button>
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link active" aria-current="page" href="#">
+            <button data-text="Awesome" class="button">
+              <span class="actual-text">&nbsp;Quien&nbsp;Soy&nbsp;</span>
+              <span class="hover-text" aria-hidden="true"
+                >&nbsp;Quien&nbsp;Soy&nbsp;</span
+              >
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <button data-text="Awesome" class="button">
+              <span class="actual-text">&nbsp;Juegos&nbsp;</span>
+              <span class="hover-text" aria-hidden="true"
+                >&nbsp;Juegos&nbsp;</span
+              >
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <button data-text="Awesome" class="button">
+              <span class="actual-text">&nbsp;Chat&nbsp;</span>
+              <span class="hover-text" aria-hidden="true"
+                >&nbsp;Chat&nbsp;</span
+              >
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <button data-text="Awesome" class="button">
+              <span class="actual-text">&nbsp;Encuesta&nbsp;</span>
+              <span class="hover-text" aria-hidden="true"
+                >&nbsp;Encuesta&nbsp;</span
+              >
+            </button>
+          </a>
         </li>
       </ul>
       <a class="navbar-brand" href="#" *ngIf="userLogged | async as user">
