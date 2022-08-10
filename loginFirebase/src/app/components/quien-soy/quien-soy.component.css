@@ -4,7 +4,7 @@
   background-attachment: fixed;
   background-position: center;
   height: 100vh;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .contenedor-bienvenida {
@@ -51,6 +51,15 @@
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+@media screen and (max-width: 500px){
+    .body {
+        padding-top: 3rem;
+    }
+    .contenedor-bienvenida {
+        width: 90vw;
+    }
 }
 
 /* *********************************************************** */
