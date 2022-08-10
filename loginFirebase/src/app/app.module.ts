@@ -14,20 +14,27 @@ import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent},
-  { path: 'home', component: HomeComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'quiensoy', component: QuienSoyComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
-
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, LoginComponent, HomeComponent, QuienSoyComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    LoginComponent,
+    HomeComponent,
+    QuienSoyComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
-
   userLogged = this.authService.getUserLogged();
+  animacion : boolean = true;
 
   constructor(private authService: AuthService, private router: Router) {}
 

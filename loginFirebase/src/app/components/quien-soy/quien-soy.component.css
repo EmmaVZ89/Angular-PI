@@ -1,0 +1,103 @@
+.body {
+  background-image: url("../../../assets/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  padding-top: 2rem;
+}
+
+.contenedor-bienvenida {
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px black;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.50);
+}
+
+.contenedor-bienvenida > img {
+  width: 12rem;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 20%;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 0 0 8px black;
+}
+
+.fondo-des {
+  background-image: url("../../../assets/fondo-login-des2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.view-from-right {
+  animation: viewFromRight 1s;
+}
+
+@keyframes viewFromRight {
+  0% {
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+
+/* From uiverse.io by @alexroumi */
+button {
+  display: block;
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+button:hover {
+  color: #e8e8e8;
+}
+
+button:hover::before {
+  width: 100%;
+}

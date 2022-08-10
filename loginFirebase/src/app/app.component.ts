@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -7,7 +8,10 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  userLogged = this.authService.getUserLogged();
 
-  constructor() {}
-  
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+  }
 }

@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" *ngIf="userLogged | async">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link active" aria-current="page" href="/home">
             <button data-text="Awesome" class="button">
               <span class="actual-text">&nbsp;Home&nbsp;</span>
               <span class="hover-text" aria-hidden="true"
@@ -31,7 +31,7 @@
           </a>
         </li>
         <li class="nav-item" *ngIf="userLogged | async">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link active" aria-current="page" href="/quiensoy">
             <button data-text="Awesome" class="button">
               <span class="actual-text">&nbsp;Quien&nbsp;Soy&nbsp;</span>
               <span class="hover-text" aria-hidden="true"
@@ -81,13 +81,13 @@
         />
         {{ user.email }}
       </a>
-      <button class="btn-login" *ngIf="!(userLogged | async)">
+      <button class="btn-login" *ngIf="!userLogged">
         REGISTRO
         <div class="arrow-wrapper">
           <div class="arrow"></div>
         </div>
       </button>
-      <button class="btn-logout" *ngIf="userLogged | async" (click)="logout()">
+      <button class="btn-logout" *ngIf="userLogged">
         LOGOUT
         <div class="arrow-wrapper">
           <div class="arrow"></div>

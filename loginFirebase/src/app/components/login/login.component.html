@@ -1,8 +1,8 @@
 <body>
-  <div class="container">
+  <div class="container" [ngClass]="animacion ? 'view-from-right' : ''">
     <div class="card text-center">
       <div class="card-header form-estilos fondo-des">
-        <b>INICIO DE SESIÓN</b>
+        <h3><b>INICIO DE SESIÓN</b></h3>
       </div>
       <div class="card-body p-4 form-estilos fondo-des">
         <label style="float: left" class="mt-2">Email</label>
@@ -37,19 +37,6 @@
         </button>
         <label>¿Aun no tienes cuenta? <a href="#"> Registrarse</a></label>
       </div>
-
-      <!-- <div>
-    <button
-    style="width: 100%"
-    class="btn btn-info mt-2"
-    (click)="obtenerUsuarioLogueado()"
-    >
-        Usuario Logueado
-      </button>
-      <button style="width: 100%" class="btn btn-info mt-2" (click)="logout()">
-          Logout
-      </button>
-    </div> -->
     </div>
   </div>
 </body>
