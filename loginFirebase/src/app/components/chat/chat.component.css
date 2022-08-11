@@ -1,0 +1,58 @@
+.card-body {
+  padding: 1rem;
+  background-image: url("../../../assets/fondo-chat.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-header {
+  background-color: rgb(0, 161, 107);
+  color: white;
+  font-weight: bolder;
+}
+
+.contenedor-carta {
+  width: 20rem;
+  height: 30rem;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.btn-enviar {
+  cursor: pointer;
+}
+
+.btn-enviar:active {
+  transition: all 0.5s;
+  transform: scale(0.8);
+}
+
+.contenedor-mensajes {
+  overflow: scroll;
+  padding: 0.5rem;
+}
+
+.mensaje-enviado {
+  display: block;
+  float: right;
+  padding: 0.5rem;
+  background-color: rgba(54, 219, 17, 0.5);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  min-width: 50.1%;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.mensaje-recibido {
+  display: block;
+  float: left;
+  padding: 0.5rem;
+  background-color: rgba(150, 150, 150, 0.5);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  min-width: 60%;
+  border-radius: 10px;
+  text-align: left;
+}

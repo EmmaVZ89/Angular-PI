@@ -13,12 +13,14 @@ import { HomeComponent } from './components/home/home.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RegistroComponent } from './components/registro/registro.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'quiensoy', component: QuienSoyComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'chat', component: ChatComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
     HomeComponent,
     QuienSoyComponent,
     RegistroComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
