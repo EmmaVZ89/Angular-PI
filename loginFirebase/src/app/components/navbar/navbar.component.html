@@ -72,22 +72,21 @@
         </li>
       </ul>
       <a class="navbar-brand" href="#" *ngIf="userLogged | async as user">
-        <img
-          *ngIf="user.photoURL"
-          src="{{ user.photoURL }}"
-          width="30"
-          height="30"
-          alt=""
-        />
         {{ user.email }}
       </a>
-      <button class="btn-login" *ngIf="!userLogged">
+      <button class="btn-registro" *ngIf="!isLogged" (click)="irARegistro()">
         REGISTRO
         <div class="arrow-wrapper">
           <div class="arrow"></div>
         </div>
       </button>
-      <button class="btn-logout" *ngIf="userLogged">
+      <button class="btn-login" *ngIf="!isLogged" (click)="irALogin()">
+        LOGIN
+        <div class="arrow-wrapper">
+          <div class="arrow"></div>
+        </div>
+      </button>
+      <button class="btn-logout" *ngIf="isLoggedLogout" (click)="logout()">
         LOGOUT
         <div class="arrow-wrapper">
           <div class="arrow"></div>

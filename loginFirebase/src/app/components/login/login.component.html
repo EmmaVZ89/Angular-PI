@@ -12,7 +12,7 @@
           placeholder="Email"
           [(ngModel)]="usuario.email"
         />
-
+        <p *ngIf="logError" class="error-login">* Debe ingresar un email valido.</p>
         <label style="float: left" class="mt-2">Password</label>
         <input
           class="form-control"
@@ -20,13 +20,20 @@
           placeholder="Password"
           [(ngModel)]="usuario.password"
         />
-
+        <p *ngIf="logError" class="error-login">* Debe ingresar un password valido.</p>
         <button
           style="width: 100%"
           class="btn btn-primary mt-2"
           (click)="ingresar()"
         >
           Ingresar
+        </button>
+        <button
+          style="width: 100%"
+          class="btn btn-warning mt-2"
+          (click)="cargarInvitado()"
+        >
+          Ingresar como invitado
         </button>
         <button
           style="width: 100%"

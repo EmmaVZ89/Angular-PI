@@ -12,11 +12,13 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { RouterModule, Routes } from '@angular/router';
+import { RegistroComponent } from './components/registro/registro.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'quiensoy', component: QuienSoyComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
@@ -27,6 +29,7 @@ const appRoutes: Routes = [
     LoginComponent,
     HomeComponent,
     QuienSoyComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,

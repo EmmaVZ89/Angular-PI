@@ -15,11 +15,13 @@ export class AuthService {
         password
       );
     } catch (error) {
-      console.error('Error en creacion de usuario: ', error);
-      return null;
+      throw error;
+      // console.error('Error en creacion de usuario: ', error);
+      // return null;
     }
   }
 
+  
   async login(email: string, password: string) {
     try {
       return await this.angularFireAuth.signInWithEmailAndPassword(

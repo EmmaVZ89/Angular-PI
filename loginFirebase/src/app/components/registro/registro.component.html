@@ -1,0 +1,37 @@
+<body>
+  <div
+    class="container view-from-right"
+  >
+    <div class="card text-center" *ngIf="isLogged">
+      <div class="card-header form-estilos fondo-des">
+        <h3><b>REGISTRO DE USUARIO</b></h3>
+      </div>
+      <div class="card-body p-4 form-estilos fondo-des">
+        <label style="float: left">Email</label>
+        <input
+          class="form-control"
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="usuario.email"
+        />
+        <label style="float: left" class="mt-2">Password</label>
+        <input
+          class="form-control"
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="usuario.password"
+        />
+        <p *ngIf="mensajeRespuesta" class="error-login">
+          {{ mensajeRespuesta }}.
+        </p>
+        <button
+          style="width: 100%"
+          class="btn btn-success mt-4"
+          (click)="registrarUsuario()"
+        >
+          Registrarme
+        </button>
+      </div>
+    </div>
+  </div>
+</body>

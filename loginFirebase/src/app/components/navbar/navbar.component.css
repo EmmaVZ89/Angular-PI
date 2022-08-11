@@ -60,7 +60,7 @@
 
 /* From uiverse.io by @satyamchaudharydev */
 .btn-login {
-  --primary-color: #07ff6f;
+  --primary-color: #009dff;
   --secondary-color: #fff;
   --hover-color: #111;
   --arrow-width: 10px;
@@ -188,5 +188,75 @@
 }
 
 .btn-logout:hover .arrow:before {
+  right: 0;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* From uiverse.io by @satyamchaudharydev */
+.btn-registro {
+  --primary-color: #07ff6f;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  text-shadow: 0 0 4px black;
+  padding: 0.5em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  border: 1px solid black;
+  margin-right: 1rem;
+}
+
+.btn-registro .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-registro .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+.btn-registro .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+.btn-registro:hover {
+  background-color: var(--hover-color);
+}
+
+.btn-registro:hover .arrow {
+  background: var(--secondary-color);
+}
+
+.btn-registro:hover .arrow:before {
   right: 0;
 }

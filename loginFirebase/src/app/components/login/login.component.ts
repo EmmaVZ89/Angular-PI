@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   };
   userLogged = this.authService.getUserLogged();
   animacion : boolean = true;
+  logError = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -28,6 +29,9 @@ export class LoginComponent implements OnInit {
   ingresar() {
     const { email, password } = this.usuario;
     this.authService.login(email, password).then((res) => {
+      if(res === null) {
+        this.logError = true;
+      }
       console.log('Usuario logueado: ', res);
     });
   }
@@ -37,6 +41,11 @@ export class LoginComponent implements OnInit {
     this.authService.loginWithGoogle(email, password).then((res) => {
       console.log('Usuario logueado con google: ', res);
     });
+  }
+
+  cargarInvitado(){
+    this.usuario.email = "invitado@invitado.com";
+    this.usuario.password = "invitado1234";
   }
 
   obtenerUsuarioLogueado() {

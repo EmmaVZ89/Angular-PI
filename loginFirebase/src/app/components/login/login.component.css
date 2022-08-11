@@ -26,6 +26,13 @@ body {
   background-position: center;
 }
 
+.error-login {
+  color: rgb(251, 79, 79);
+  text-shadow: 1px 1px 1px black;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
 .view-from-right {
   animation: viewFromRight 1s;
 }
