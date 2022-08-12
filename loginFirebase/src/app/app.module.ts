@@ -14,6 +14,12 @@ import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { JuegosHomeComponent } from './components/juegos-home/juegos-home.component';
+import { AhorcadoComponent } from './components/juegos/ahorcado/ahorcado.component';
+import { MayorMenorComponent } from './components/juegos/mayor-menor/mayor-menor.component';
+import { PreguntadosComponent } from './components/juegos/preguntados/preguntados.component';
+import { MiJuegoComponent } from './components/juegos/mi-juego/mi-juego.component';
+import { JuegosRoutingModule } from './components/juegos/juegos-routing.module';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,6 +28,13 @@ const appRoutes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'chat', component: ChatComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'juegos',
+    loadChildren: () =>
+      import('./components/juegos/juegos-routing.module').then(
+        (module) => module.JuegosRoutingModule
+      ),
+  },
 ];
 
 @NgModule({
@@ -33,6 +46,11 @@ const appRoutes: Routes = [
     QuienSoyComponent,
     RegistroComponent,
     ChatComponent,
+    JuegosHomeComponent,
+    AhorcadoComponent,
+    MayorMenorComponent,
+    PreguntadosComponent,
+    MiJuegoComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +59,7 @@ const appRoutes: Routes = [
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes),
+    JuegosRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
