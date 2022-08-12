@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChatServiceService } from 'src/app/services/chat-service.service';
+import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -9,47 +12,52 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ChatComponent implements OnInit {
   userLogged: any;
   nuevoMensaje: string = '';
-  listaDeMensajes: any = [
-    {
-      emisor: 'id',
-      texto: 'Hola mundo. Todo bien?sdf sdf sdf sdfads sdafasdf asdf asdf',
-    },
-    {
-      emisor: 'id',
-      texto: 'Hola 2',
-    },
-    {
-      emisor: 'Bi1Ivf6EMtNADeeCFDczF9P9zXp1',
-      texto: 'Hola 3',
-    },
-    {
-      emisor: 'Bi1Ivf6EMtNADeeCFDczF9P9zXp1',
-      texto: 'Hola 4',
-    },
-    {
-      emisor: 'id',
-      texto: 'Hola 5',
-    },
-    {
-      emisor: 'Bi1Ivf6EMtNADeeCFDczF9P9zXp1',
-      texto: 'Hola 6',
-    },
-  ];
+  listaDeMensajes: any = [];
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private chatService: ChatServiceService,
+    private router: Router
+  ) {
+    this.chatService.getMessages().subscribe((messages) => {
+      if (messages !== null) {
+        this.listaDeMensajes = messages;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.authService.getUserLogged().subscribe((user) => {
-      this.userLogged = user;
+      if(!user) {
+        this.router.navigate(['/login']);
+      } else {
+        this.userLogged = user;
+      }
     });
   }
 
   enviarMensaje() {
+    if (this.nuevoMensaje == '') return;
+    const fecha = moment(new Date()).format('DD-MM-YYYY HH:mm:ss');
     const mensaje = {
-      emisor: this.userLogged.uid,
+      usuario: {
+        id: this.userLogged.uid,
+        email: this.userLogged.email,
+      },
       texto: this.nuevoMensaje,
+      fecha: fecha,
     };
-    this.listaDeMensajes.push(mensaje);
+    // this.listaDeMensajes.push(mensaje);
+    this.chatService.createMessage(mensaje);
     this.nuevoMensaje = '';
+    // this.scrollToTheLastElementByClassName();
   }
+
+  // scrollToTheLastElementByClassName() {
+  //   const elements = document.getElementsByClassName('mensajes');
+  //   const lastElement: any = elements[elements.length - 1];
+  //   const toppos = lastElement.offsetTop;
+  //   //@ts-ignore
+  //   document.getElementById("contenedor-mensajes")?.scrollTop = toppos;
+  // }
 }

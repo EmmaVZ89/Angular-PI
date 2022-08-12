@@ -1,6 +1,25 @@
+section {
+  background-image: url("../../../assets/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.contenedor-carta {
+  width: 70vw;
+  height: 350px;
+  position: fixed;
+  z-index: 1;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .card-body {
-  padding: 1rem;
-  background-image: url("../../../assets/fondo-chat.jpg");
+  padding: 0.5rem;
+  background-image: url("../../../assets/fondo-chat2.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -9,14 +28,6 @@
   background-color: rgb(0, 161, 107);
   color: white;
   font-weight: bolder;
-}
-
-.contenedor-carta {
-  width: 20rem;
-  height: 30rem;
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
 }
 
 .btn-enviar {
@@ -30,13 +41,17 @@
 
 .contenedor-mensajes {
   overflow: scroll;
-  padding: 0.5rem;
+  padding: 0.3rem;
+  height: 350px;
+}
+
+.contenedor-mensajes::-webkit-scrollbar {
+  display: none;
 }
 
 .mensaje-enviado {
   display: block;
   float: right;
-  padding: 0.5rem;
   background-color: rgba(54, 219, 17, 0.5);
   color: white;
   text-shadow: 1px 1px 1px black;
@@ -48,11 +63,42 @@
 .mensaje-recibido {
   display: block;
   float: left;
-  padding: 0.5rem;
   background-color: rgba(150, 150, 150, 0.5);
   color: white;
   text-shadow: 1px 1px 1px black;
-  min-width: 60%;
+  min-width: 50.1%;
   border-radius: 10px;
   text-align: left;
+}
+
+.email-1 {
+  font-size: 0.7;
+  color: rgb(49, 199, 240);
+  text-decoration: underline;
+}
+
+.email-2 {
+  font-size: 0.7;
+  color: rgb(240, 173, 49);
+  text-decoration: underline;
+}
+
+.fecha {
+  font-size: 0.6rem;
+  color: rgb(201, 200, 200);
+  text-align: right;
+  float: right;
+}
+
+.view-from-right {
+    animation: viewFromRight 0.5s;
+}
+
+@keyframes viewFromRight {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

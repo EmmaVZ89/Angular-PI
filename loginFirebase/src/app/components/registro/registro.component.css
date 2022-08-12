@@ -1,50 +1,49 @@
 body {
-    background-image: url("../../../assets/fondo-login.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+  background-image: url("../../../assets/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.form-estilos {
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 0 0 8px black;
+}
+
+.fondo-des {
+  background-image: url("../../../assets/fondo-login-des2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.error-login {
+  color: rgb(251, 79, 79);
+  text-shadow: 1px 1px 1px black;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+.view-from-right {
+  animation: viewFromRight 1s;
+}
+
+@keyframes viewFromRight {
+  0% {
+    transform: translateX(-400px);
+    opacity: 0;
   }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  .form-estilos {
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    box-shadow: 0 0 8px black;
-  }
-  
-  .fondo-des {
-    background-image: url("../../../assets/fondo-login-des2.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-  }
-  
-  .error-login {
-    color: rgb(251, 79, 79);
-    text-shadow: 1px 1px 1px black;
-    font-size: 0.8rem;
-    margin-bottom: 0;
-  }
-  
-  .view-from-right {
-    animation: viewFromRight 1s;
-  }
-  
-  @keyframes viewFromRight {
-    0% {
-      transform: translateX(-400px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
+}

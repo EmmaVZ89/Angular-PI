@@ -1,26 +1,55 @@
-<div class="card text-center contenedor-carta" *ngIf="userLogged">
-  <div class="card-header">CHAT</div>
-  
-  <div class="card-body">
-    <div class="contenedor-mensajes h-100">
-        <p *ngFor="let mensaje of listaDeMensajes"
-        [ngClass]="(userLogged.uid==mensaje.emisor) ? 'mensaje-enviado' : 'mensaje-recibido'">
-            {{mensaje.texto}}
-        </p>
-    </div>
-  </div>
+<section>
+  <div
+    class="card text-center contenedor-carta view-from-right"
+    *ngIf="userLogged"
+  >
+    <div class="card-header">CHAT</div>
 
-  <form class="card-footer text-muted input-group" (ngSubmit)="enviarMensaje()">
+    <div class="card-body">
+      <div id="contenedor-mensajes" class="contenedor-mensajes">
+        <p
+          *ngFor="let mensaje of listaDeMensajes"
+          class="p-2 mensajes"
+          [ngClass]="
+            userLogged.uid == mensaje.usuario.id
+              ? 'mensaje-enviado'
+              : 'mensaje-recibido'
+          "
+        >
+          <span
+            [ngClass]="
+              userLogged.uid == mensaje.usuario.id ? 'email-1' : 'email-2'
+            "
+            >{{ mensaje.usuario.email }}</span
+          >
+          <br />
+          {{ mensaje.texto }} <br />
+          <span class="fecha">{{ mensaje.fecha }}</span>
+        </p>
+      </div>
+    </div>
+
+    <form
+      class="card-footer text-muted input-group"
+      (ngSubmit)="enviarMensaje()"
+    >
       <input
         type="text"
         class="form-control"
-        placeholder="Ingrese su mensaje" [(ngModel)]="nuevoMensaje"
-        [ngModelOptions]="{standalone: true}"
+        placeholder="Ingrese su mensaje"
+        [(ngModel)]="nuevoMensaje"
+        [ngModelOptions]="{ standalone: true }"
       />
       <div class="input-group-append" (click)="enviarMensaje()">
         <span class="input-group-text" id="basic-addon2">
-            <img class="btn-enviar" width="30px" src="../../../assets/send.png" alt="enviar mensaje">
+          <img
+            class="btn-enviar"
+            width="30px"
+            src="../../../assets/send.png"
+            alt="enviar mensaje"
+          />
         </span>
       </div>
-  </form>
-</div>
+    </form>
+  </div>
+</section>
