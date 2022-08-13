@@ -1,1 +1,26 @@
-<p>ahorcado works!</p>
+<section class="juego-ahorcado">
+  <div
+    class="container d-flex flex-column justify-content-center"
+    *ngIf="userLogged"
+  >
+    <h1 class="titulo-ahorcado">AHORCADO</h1>
+    <p class="intentos">Intentos {{ intentos }}/6</p>
+    <div class="row palabra-adivinar">
+      <div class="col-md-12 text-center">
+        <div *ngFor="let guion of palabraConGuiones" class="d-inline">
+          <h1 class="d-inline p-2">{{ guion }}</h1>
+        </div>
+    </div>
+    <span class="puntaje">(Puntaje: {{puntaje}})</span>
+    </div>
+    <div class="container">
+      <button
+        *ngFor="let letra of letrasDeBotones"
+        class="btn-letra"
+        (click)="enviarLetra(letra)"
+      >
+        {{ letra }}
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,88 @@
+.juegos-home {
+  background-image: url("../../../assets/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.card {
+  width: 15rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-top: 1rem;
+  border-radius: 20px;
+  border: 1px solid black;
+  box-shadow: 0 0 8px black;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 8px white;
+  transition: 0.5s;
+}
+
+.card-img-top {
+  width: 14rem;
+  height: 17rem;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.card-title {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-text {
+  color: white;
+  text-align: justify;
+  height: 5rem;
+  overflow: scroll;
+}
+
+.card-text::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    width: 90%;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ****************************************************************** */
+/* ****************************************************************** */
+/* ****************************************************************** */
+/* ****************************************************************** */
+
+/* From uiverse.io */
+.btn-juegos {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  display: block;
+}
+
+.btn-juegos:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.btn-juegos:active {
+  transform: translateY(-1px);
+}
