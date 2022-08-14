@@ -1,1 +1,36 @@
-<p>mayor-menor works!</p>
+<section class="juego-mayormenor">
+  <div
+    class="container d-flex flex-column justify-content-center"
+    *ngIf="userLogged"
+  >
+    <h1 class="titulo-mayormenor">MAYOR MENOR</h1>
+    <p class="puntuacion">
+      Puntuación: {{ puntuacion }}
+      <span class="intentos">(Intentos: {{ intentos }}/10)</span>
+    </p>
+    <p class="juego-terminado" *ngIf="juegoTerminado">
+      {{ textoJuegoTerminado }}
+    </p>
+    <div class="row">
+      <div class="col">
+        <img class="carta-izquierda" src="{{ imagenCarta }}" alt="" />
+      </div>
+      <div class="col">
+        <img
+          class="carta-derecha"
+          src="../../../../assets/mayor menor/reverso.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <div *ngIf="!juegoActivo">
+      <button class="btn-comenzar-reiniciar" (click)="empezarJuego()">
+        {{ textoBotonComenzar }}
+      </button>
+    </div>
+    <div class="btn-mayormenor" *ngIf="juegoActivo">
+      <button class="btn-menor" (click)="jugar('menor')">Menor</button>
+      <button class="btn-mayor" (click)="jugar('mayor')">Mayor</button>
+    </div>
+  </div>
+</section>
