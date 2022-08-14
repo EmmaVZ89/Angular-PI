@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private angularFireAuth: AngularFireAuth) {}
+  constructor(
+    private angularFireAuth: AngularFireAuth,
+    private firestore: AngularFirestore
+  ) {}
 
   async register(email: string, password: string) {
     try {
@@ -21,7 +25,6 @@ export class AuthService {
     }
   }
 
-  
   async login(email: string, password: string) {
     try {
       return await this.angularFireAuth.signInWithEmailAndPassword(
@@ -51,5 +54,9 @@ export class AuthService {
 
   logout() {
     this.angularFireAuth.signOut();
+  }
+
+  sendUserResultado(nombreJuego: string, resultado: any) {
+    return this.firestore.collection(nombreJuego).add(resultado);
   }
 }
