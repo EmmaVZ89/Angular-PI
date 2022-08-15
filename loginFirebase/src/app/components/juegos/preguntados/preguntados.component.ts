@@ -11,17 +11,18 @@ import { AuthService } from 'src/app/services/auth.service';
 export class PreguntadosComponent implements OnInit {
   userLogged: any = null;
   listadoPaises: any = [];
-  textoBotonComenzar: string = 'Comenzar Juego';
+  listadoPreguntas: any = [];
   victoria: boolean = false;
   juegoActivo: boolean = false;
   juegoTerminado: boolean = false;
   textoJuegoTerminado: string = '¡PERDISTE!';
   puntuacion: number = 0;
   intentos: number = 10;
-  cartaActual: any = null;
-  numeroActual: number = 0;
+  preguntaActual: any = null;
+  preguntasCargadas: boolean = false;
   indiceActual: number = 0;
-
+  respuestaCorrecta: boolean = false;
+  respuestaIncorrecta: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -40,33 +41,110 @@ export class PreguntadosComponent implements OnInit {
         const paises = await this.apiPaises.getPaises();
         this.listadoPaises = paises.map((pais: any) => {
           return {
-            nombre: pais.name.common,
+            nombre: pais.translations.spa.official,
             bandera: pais.flags.png,
           };
         });
+        this.empezarJuego();
       }
     });
   }
-}
 
-// 4  - Angola
-// 5  - Bolivia
-// 7  - Peru
-// 9  - Alemania 
-// 11 - Afganistan
-// 16 - Indonesia
-// 20 - Gabon 
-// 25 - Turquía
-// 34 - Cuba 
-// 49 - Bermuda
-// 53 - Rusia 
-// 55 - Japon
-// 58 - Honduras
-// 62 - Argentina
-// 67 - El Salvador
-// 70 - Brasil 
-// 87 - Ethiopia
-// 90 - India
-// 91 - Puerto Rico
-// 96 - Polonia
-// 103 - Haiti
+  empezarJuego() {
+    this.generarPreguntas();
+    this.preguntaActual = this.listadoPreguntas[this.indiceActual];
+    this.juegoActivo = true;
+  }
+
+  generarPreguntas() {
+    this.listadoPaises.sort(() => Math.random() - 0.5);
+    this.listadoPreguntas = this.listadoPaises.slice(0, 10).map((pais: any) => {
+      const opcion2 = this.listadoPaises[this.generarNumeroRandom()].nombre;
+      const opcion3 = this.listadoPaises[this.generarNumeroRandom()].nombre;
+      const opcion4 = this.listadoPaises[this.generarNumeroRandom()].nombre;
+      const opciones = [pais.nombre, opcion2, opcion3, opcion4].sort(
+        () => Math.random() - 0.5
+      );
+      return {
+        respuesta: pais.nombre,
+        opciones: opciones,
+        bandera: pais.bandera,
+      };
+    });
+    this.preguntasCargadas = true;
+  }
+
+  generarNumeroRandom() {
+    return Math.floor(Math.random() * 249);
+  }
+
+  jugar(opcion: string, evento: Event) {
+    if (this.juegoActivo) {
+      const btn = <HTMLButtonElement>evento.target;
+      btn.disabled = true;
+      if (opcion === this.preguntaActual.respuesta) {
+        this.puntuacion++;
+        this.respuestaCorrecta = true;
+        setTimeout(() => {
+          this.respuestaCorrecta = false;
+        }, 300);
+      } else {
+        this.respuestaIncorrecta = true;
+        setTimeout(() => {
+          this.respuestaIncorrecta = false;
+        }, 300);
+      }
+
+      if (this.indiceActual < 9) {
+        this.indiceActual++;
+        setTimeout(() => {
+          this.preguntaActual = this.listadoPreguntas[this.indiceActual];
+        }, 500);
+      }
+
+      if (this.intentos > 0) {
+        this.intentos--;
+        if (this.intentos === 0) {
+          this.juegoActivo = false;
+          this.juegoTerminado = true;
+          if (this.puntuacion >= 3) {
+            this.victoria = true;
+            this.textoJuegoTerminado = '¡GANASTE!';
+          }
+          this.crearResultado();
+        }
+      }
+    }
+  }
+
+  reiniciarJuego() {
+    this.generarPreguntas();
+    this.indiceActual = 0;
+    this.puntuacion = 0;
+    this.intentos = 10;
+    this.juegoActivo = true;
+    this.victoria = false;
+    this.juegoTerminado = false;
+    this.textoJuegoTerminado = '¡PERDISTE!';
+    this.preguntaActual = this.listadoPreguntas[this.indiceActual];
+  }
+
+  crearResultado() {
+    const fecha = new Date();
+    const fechaActual = fecha.toLocaleDateString();
+    const resultado = {
+      juego: 'preguntados',
+      userUID: this.userLogged.uid,
+      fechaActual: fechaActual,
+      victoria: this.victoria,
+    };
+    this.authService
+      .sendUserResultado('preguntadosResultados', resultado)
+      .then((res) => {
+        console.log('Resultados Enviados!');
+      })
+      .catch((err) => {
+        console.log('Error al enviar Resultados!');
+      });
+  }
+}

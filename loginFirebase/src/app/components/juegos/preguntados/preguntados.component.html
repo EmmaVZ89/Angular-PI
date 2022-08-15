@@ -3,7 +3,7 @@
     class="container d-flex flex-column justify-content-center"
     *ngIf="userLogged"
   >
-    <h1 class="titulo-mayormenor">MAYOR MENOR</h1>
+    <h1 class="titulo-preguntados">PREGUNTADOS</h1>
     <p class="puntuacion">
       Puntuación: {{ puntuacion }}
       <span class="intentos">(Intentos: {{ intentos }}/10)</span>
@@ -11,5 +11,26 @@
     <p class="juego-terminado" *ngIf="juegoTerminado">
       {{ textoJuegoTerminado }}
     </p>
+    <div class="contenedor-pregunta" *ngIf="preguntasCargadas">
+      <img src="{{ preguntaActual.bandera }}" alt="bandera" />
+      <h3>¿ De qué país es la bandera ?</h3>
+
+      <div *ngIf="juegoActivo">
+        <button
+          class="btn-opcion"
+          *ngFor="let opcion of preguntaActual.opciones"
+          (click)="jugar(opcion, $event)"
+          [ngClass]="respuestaCorrecta ? 'correcta' : ''"
+          [ngClass]="respuestaIncorrecta ? 'incorrecta' : ''"
+        >
+          {{ opcion }}
+        </button>
+      </div>
+      <div *ngIf="!juegoActivo">
+        <button class="btn-reiniciar" (click)="reiniciarJuego()">
+            Reiniciar Juego
+        </button>
+      </div>
+    </div>
   </div>
 </section>
