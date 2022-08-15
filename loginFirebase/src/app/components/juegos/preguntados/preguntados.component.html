@@ -1,1 +1,15 @@
-<p>preguntados works!</p>
+<section class="juego-preguntados">
+  <div
+    class="container d-flex flex-column justify-content-center"
+    *ngIf="userLogged"
+  >
+    <h1 class="titulo-mayormenor">MAYOR MENOR</h1>
+    <p class="puntuacion">
+      Puntuación: {{ puntuacion }}
+      <span class="intentos">(Intentos: {{ intentos }}/10)</span>
+    </p>
+    <p class="juego-terminado" *ngIf="juegoTerminado">
+      {{ textoJuegoTerminado }}
+    </p>
+  </div>
+</section>

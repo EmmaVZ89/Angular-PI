@@ -20,6 +20,7 @@ import { MayorMenorComponent } from './components/juegos/mayor-menor/mayor-menor
 import { PreguntadosComponent } from './components/juegos/preguntados/preguntados.component';
 import { MiJuegoComponent } from './components/juegos/mi-juego/mi-juego.component';
 import { JuegosRoutingModule } from './components/juegos/juegos-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -60,6 +61,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes),
     JuegosRoutingModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

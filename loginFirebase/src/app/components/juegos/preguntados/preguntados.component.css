@@ -1,0 +1,7 @@
+.juego-preguntados {
+  background-image: url("../../../../assets/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
