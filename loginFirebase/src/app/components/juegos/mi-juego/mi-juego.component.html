@@ -1,1 +1,12 @@
-<p>mi-juego works!</p>
+<section class="juego-miJuego">
+  <div class="game">
+    <div class="row" *ngFor="let row of numRows | numToArr">
+      <div class="col" *ngFor="let col of numCols | numToArr">
+        <button (click)="onClick(row, col)" [ngClass]="{alive: board.getStatus(row, col) === 1}"></button>
+      </div>
+    </div>
+  </div>
+  <div class="info">
+    <button (click)="onClickPausar()">Pausar</button>
+  </div>
+</section>

@@ -21,6 +21,7 @@ import { PreguntadosComponent } from './components/juegos/preguntados/preguntado
 import { MiJuegoComponent } from './components/juegos/mi-juego/mi-juego.component';
 import { JuegosRoutingModule } from './components/juegos/juegos-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NumToArrPipe } from './num-to-arr.pipe';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
     MayorMenorComponent,
     PreguntadosComponent,
     MiJuegoComponent,
+    NumToArrPipe,
   ],
   imports: [
     BrowserModule,

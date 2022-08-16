@@ -1,0 +1,42 @@
+.juego-miJuego {
+  background-image: url("../../../../assets/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: -3px;
+}
+
+.col {
+ padding: 0px;
+}
+
+.game button {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+
+  /* background-image: url("../../../../assets/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; */
+
+  border: 1px solid white;
+}
+
+.game button.alive {
+  background-color: greenyellow;
+  border: 3px solid rgb(0, 0, 0);
+}
