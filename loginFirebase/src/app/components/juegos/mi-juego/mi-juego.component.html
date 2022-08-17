@@ -1,12 +1,32 @@
 <section class="juego-miJuego">
-  <div class="game">
-    <div class="row" *ngFor="let row of numRows | numToArr">
-      <div class="col" *ngFor="let col of numCols | numToArr">
-        <button (click)="onClick(row, col)" [ngClass]="{alive: board.getStatus(row, col) === 1}"></button>
+  <div class="d-flex flex-column justify-content-center" *ngIf="userLogged">
+    <h1 class="titulo-miJuego">JUEGO DE LA VIDA</h1>
+    <div class="contenedor-uid">
+      <p>Generaciones: {{ generation }}</p>
+      <p>Celdas vivas: {{ actives }}</p>
+      <p>Intentos: {{ intentos }}/20</p>
+    </div>
+    <div *ngIf="juegoTerminado" class="contenedor-juego-terminado">
+      <p
+        class="texto-juego-terminado"
+        [ngClass]="victoria ? 'victoria' : 'derrota'"
+      >
+        {{ textoJuegoTerminado }}
+      </p>
+      <button class="btn-reiniciar" (click)="reiniciar()">
+        Reiniciar Juego
+      </button>
+    </div>
+    <div class="game">
+      <div class="row" *ngFor="let row of numRows | numToArr">
+        <div class="col" *ngFor="let col of numCols | numToArr">
+          <button
+            (click)="onClick(row, col)"
+            class="btn-celda"
+            [ngClass]="{ alive: board.getStatus(row, col) === 1 }"
+          ></button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="info">
-    <button (click)="onClickPausar()">Pausar</button>
   </div>
 </section>

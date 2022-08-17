@@ -6,7 +6,8 @@ export class Board {
     for (let i = 0; i < pWidth; i++) {
       this.board[i] = [];
       for (let j = 0; j < pHeight; j++) {
-        this.board[i][j] = 0;
+        // this.board[i][j] = 0;
+        this.board[i][j] = Math.floor(Math.random() * 2);
       }
     }
   }
@@ -32,6 +33,18 @@ export class Board {
       }
     }
     this.board = [...tmpBoard];
+  }
+
+  countActives(): number {
+    let actives: number = 0;
+    for (let i = 0; i < this.board.length; i++) {
+      for (let j = 0; j < this.board[i].length; j++) {
+        if (this.board[i][j] === 1) {
+          actives++;
+        }
+      }
+    }
+    return actives;
   }
 
   checkRules(coordX: number, coordY: number): number {
