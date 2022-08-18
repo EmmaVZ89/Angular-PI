@@ -19,5 +19,8 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-  
+
+  irAQuienSoy() {
+    this.router.navigate(['/quiensoy']);
+  }
 }

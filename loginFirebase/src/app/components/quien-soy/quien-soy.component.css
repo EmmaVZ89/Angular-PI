@@ -11,12 +11,12 @@
   width: 70vw;
   margin-left: auto;
   margin-right: auto;
-  color: black;
+  color: white;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 0 8px black;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.50);
+  background-color: rgba(0, 0, 0, 0.60);
 }
 
 .contenedor-bienvenida > img {
@@ -29,6 +29,10 @@
   border-radius: 20%;
   border: 2px solid rgb(0, 0, 0);
   box-shadow: 0 0 8px black;
+}
+
+.lista-reglas {
+  text-align: left;
 }
 
 .fondo-des {

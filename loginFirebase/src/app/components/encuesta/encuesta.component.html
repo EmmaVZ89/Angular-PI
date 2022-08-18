@@ -1,0 +1,160 @@
+<section class="encuesta">
+  <form
+    *ngIf="userLogged"
+    [formGroup]="formulario"
+    class="container contenedor-form"
+    (ngSubmit)="enviarFormulario()"
+  >
+    <div class="row d-flex flex-wrap">
+      <div class="col-sm mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          formControlName="nombre"
+          type="text"
+          class="form-control"
+          id="nombre"
+          placeholder="Nombre"
+        />
+        <span *ngIf="nombreValido" class="campo-requerido">{{
+          nombreValido
+        }}</span>
+      </div>
+      <div class="col-sm mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input
+          formControlName="apellido"
+          type="text"
+          class="form-control"
+          id="apellido"
+          placeholder="Apellido"
+        />
+        <span *ngIf="apellidoValido" class="campo-requerido">{{
+          apellidoValido
+        }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm mb-3">
+        <label for="edad" class="form-label">Edad</label>
+        <input
+          formControlName="edad"
+          type="number"
+          class="form-control"
+          id="edad"
+          placeholder="Edad"
+          min="18"
+          max="99"
+        />
+        <span *ngIf="edadValida" class="campo-requerido">{{ edadValida }}</span>
+      </div>
+      <div class="col-sm mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input
+          formControlName="telefono"
+          type="text"
+          class="form-control"
+          id="telefono"
+          placeholder="Teléfono"
+        />
+        <span *ngIf="telefonoValido" class="campo-requerido">{{
+          telefonoValido
+        }}</span>
+      </div>
+    </div>
+    <!-- PREGUNTAS -->
+    <hr />
+    <div class="mb-3 row d-flex flex-wrap">
+      <div class="col-sm mb-3">
+        <label class="form-label">¿Qué juego te gustaría que sumemos?</label>
+        <div class="form-check">
+          <input
+          formControlName="nuevoJuegoUno"
+            class="form-check-input"
+            type="checkbox"
+            value="tateti"
+            id="tateti"
+            checked
+          />
+          <label class="form-check-label" for="tateti"> Tateti </label>
+        </div>
+        <div class="form-check">
+          <input
+          formControlName="nuevoJuegoDos"
+            class="form-check-input"
+            type="checkbox"
+            value="memotest"
+            id="memotest"
+          />
+          <label class="form-check-label" for="memotest"> Memotest </label>
+        </div>
+        <div class="form-check">
+          <input
+          formControlName="nuevoJuegoTres"
+            class="form-check-input"
+            type="checkbox"
+            value="ppt"
+            id="ppt"
+          />
+          <label class="form-check-label" for="ppt">
+            Piedra, papel o tijera
+          </label>
+        </div>
+      </div>
+      <div class="col-sm mb-3">
+        <label class="form-label">¿Qué juego te gustó más? </label>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="juegoFavorito"
+            id="opcion1"
+            value="ahorcado"
+            checked
+          />
+          <label class="form-check-label" for="opcion1"> Ahorcado </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="juegoFavorito"
+            id="opcion2"
+            value="mayorMenor"
+          />
+          <label class="form-check-label" for="opcion2"> Mayor o Menor </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="juegoFavorito"
+            id="opcion3"
+            value="preguntados"
+          />
+          <label class="form-check-label" for="opcion3"> Preguntados </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="juegoFavorito"
+            id="opcion4"
+            value="juegoDeLaVida"
+          />
+          <label class="form-check-label" for="opcion4">
+            Juego de la vida
+          </label>
+        </div>
+      </div>
+      <div class="col-sm mb-3">
+        <label class="form-label">¿Recomendarías esta página?</label>
+        <select style="width: 10rem" class="form-select" id="recomendacion">
+          <option value="1" selected>SI</option>
+          <option value="2">NO</option>
+        </select>
+      </div>
+    </div>
+    <hr />
+    <button type="submit" class="btn-enviar">Enviar encuesta</button>
+  </form>
+</section>

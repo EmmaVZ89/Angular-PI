@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -22,6 +22,7 @@ import { MiJuegoComponent } from './components/juegos/mi-juego/mi-juego.componen
 import { JuegosRoutingModule } from './components/juegos/juegos-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NumToArrPipe } from './num-to-arr.pipe';
+import { EncuestaComponent } from './components/encuesta/encuesta.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'quiensoy', component: QuienSoyComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'encuesta', component: EncuestaComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'juegos',
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
     PreguntadosComponent,
     MiJuegoComponent,
     NumToArrPipe,
+    EncuestaComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes),
     JuegosRoutingModule,
-    HttpClientModule 
+    HttpClientModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

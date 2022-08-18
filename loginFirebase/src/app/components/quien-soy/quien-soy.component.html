@@ -1,18 +1,31 @@
 <div class="body">
   <div class="container" *ngIf="userLogged | async">
     <div class="contenedor-bienvenida">
-      <h1>Hola mi nombre es ........</h1>
+      <h1>Hola mi nombre es Emmanuel Zelarayan</h1>
       <img
         class="view-from-right"
         src="../../../assets/link-animado-2.gif"
         alt="imagen home"
       />
-      <h3>Lorem ipsum dolor sit</h3>
+      <h3>Juego de la vida</h3>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab tempora
-        iusto autem atque totam, debitis ex molestiae libero. Quasi minus illo
-        veniam dignissimos iste modi. Iusto atque minus in nam?
+        El juego consiste en una malla de 30x30 con celdas "vivas" o "muertas"
+        iniciadas aleatoriamente. El objetivo es "matar" todas las celdas en los
+        intentos dados, teniendo en cuenta las siguientes reglas:
       </p>
+      <ul class="lista-reglas">
+        <li>
+          Una celda muerta con exactamente 3 celdas vecinas vivas "nace" (es
+          decir, al turno siguiente estará viva).
+        </li>
+        <li>
+          Una celda viva con 2 o 3 celdas vecinas vivas sigue viva, en otro caso
+          muere (por "soledad" o "superpoblación").
+        </li>
+        <li>
+          <a href="https://es.wikipedia.org/wiki/Juego_de_la_vida" target="_blank">Más Información</a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
