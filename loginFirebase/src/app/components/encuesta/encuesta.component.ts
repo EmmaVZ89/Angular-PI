@@ -15,6 +15,7 @@ export class EncuestaComponent implements OnInit {
   apellidoValido: string | boolean;
   edadValida: string | boolean;
   telefonoValido: string | boolean;
+  juegoNuevoValido: string | boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +26,7 @@ export class EncuestaComponent implements OnInit {
     this.apellidoValido = false;
     this.edadValida = false;
     this.telefonoValido = false;
+    this.juegoNuevoValido = false;
     this.formulario = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
@@ -37,6 +39,11 @@ export class EncuestaComponent implements OnInit {
           Validators.pattern('^[0-9]*$'),
         ],
       ],
+      nuevoJuegoTateti: [true],
+      nuevoJuegoMemotest: [false],
+      nuevoJuegoPPT: [false],
+      juegoFavorito: ['ahorcado'],
+      recomiendaPagina: ['si'],
     });
   }
 
@@ -52,19 +59,38 @@ export class EncuestaComponent implements OnInit {
 
   enviarFormulario() {
     if (this.formulario.valid) {
-      console.log(this.formulario.value);
+      if (this.validarJuegoNuevo()) {
+        this.crearEncuesta();
+        this.formulario.reset({
+          nombre: '',
+          apellido: '',
+          edad: '',
+          telefono: '',
+          nuevoJuegoTateti: true,
+          nuevoJuegoMemotest: false,
+          nuevoJuegoPPT: false,
+          juegoFavorito: 'ahorcado',
+          recomiendaPagina: 'si',
+        });
+      } else {
+        this.mostrarMensajeValidacionNombre();
+        this.mostrarMensajeValidacionApellido();
+        this.mostrarMensajeValidacionEdad();
+        this.mostrarMensajeValidacionTelefono();
+        this.mostrarMensajeValidacionJuegoNuevo();
+      }
     } else {
       this.mostrarMensajeValidacionNombre();
       this.mostrarMensajeValidacionApellido();
       this.mostrarMensajeValidacionEdad();
       this.mostrarMensajeValidacionTelefono();
-      console.log(this.formulario.value);
+      this.mostrarMensajeValidacionJuegoNuevo();
     }
   }
 
   mostrarMensajeValidacionNombre() {
-    this.nombreValido = this.formulario.value.nombre;
-    if (this.nombreValido === '') {
+    const nombre = this.formulario.value.nombre;
+    if (nombre === '' || nombre === null) {
       this.nombreValido = 'El nombre es requerido';
     } else {
       this.nombreValido = false;
@@ -72,8 +98,8 @@ export class EncuestaComponent implements OnInit {
   }
 
   mostrarMensajeValidacionApellido() {
-    this.apellidoValido = this.formulario.value.apellido;
-    if (this.apellidoValido === '') {
+    const apellido = this.formulario.value.apellido;
+    if (apellido === '' || apellido === null) {
       this.apellidoValido = 'El apellido es requerido';
     } else {
       this.apellidoValido = false;
@@ -82,7 +108,7 @@ export class EncuestaComponent implements OnInit {
 
   mostrarMensajeValidacionEdad() {
     const edad = this.formulario.value.edad;
-    if (edad === '') {
+    if (edad === '' || edad === null) {
       this.edadValida = 'La edad es requerida';
     } else if (edad < 18) {
       this.edadValida = 'La edad debe ser mayor a 18 años';
@@ -95,7 +121,7 @@ export class EncuestaComponent implements OnInit {
 
   mostrarMensajeValidacionTelefono() {
     const telefono = this.formulario.value.telefono;
-    if (telefono === '') {
+    if (telefono === '' || telefono === null) {
       this.telefonoValido = 'El teléfono es requerido';
     } else if (isNaN(telefono)) {
       this.telefonoValido = 'Se deben ingresar solo números';
@@ -106,5 +132,43 @@ export class EncuestaComponent implements OnInit {
     }
   }
 
+  mostrarMensajeValidacionJuegoNuevo() {
+    const tateti = this.formulario.value.nuevoJuegoTateti;
+    const memoTest = this.formulario.value.nuevoJuegoMemotest;
+    const ppt = this.formulario.value.nuevoJuegoPPT;
+    if (!tateti && !memoTest && !ppt) {
+      this.juegoNuevoValido = 'Se debe elegir al menos una opción';
+    } else {
+      this.juegoNuevoValido = false;
+    }
+  }
 
+  validarJuegoNuevo(): boolean {
+    const tateti = this.formulario.value.nuevoJuegoTateti;
+    const memoTest = this.formulario.value.nuevoJuegoMemotest;
+    const ppt = this.formulario.value.nuevoJuegoPPT;
+    if (!tateti && !memoTest && !ppt) {
+      return false;
+    }
+    return true;
+  }
+
+  crearEncuesta() {
+    const fecha = new Date();
+    const fechaActual = fecha.toLocaleDateString();
+    const encuesta = {
+      tipo: 'encuesta',
+      userUID: this.userLogged.uid,
+      fechaActual: fechaActual,
+      encuesta: this.formulario.value,
+    };
+    this.authService
+      .sendUserResultado('encuestas', encuesta)
+      .then((res) => {
+        console.log('Encuesta enviada!');
+      })
+      .catch((err) => {
+        console.log('Error al enviar encuesta!');
+      });
+  }
 }

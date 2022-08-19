@@ -68,18 +68,17 @@
         <label class="form-label">¿Qué juego te gustaría que sumemos?</label>
         <div class="form-check">
           <input
-          formControlName="nuevoJuegoUno"
+            formControlName="nuevoJuegoTateti"
             class="form-check-input"
             type="checkbox"
             value="tateti"
             id="tateti"
-            checked
           />
           <label class="form-check-label" for="tateti"> Tateti </label>
         </div>
         <div class="form-check">
           <input
-          formControlName="nuevoJuegoDos"
+            formControlName="nuevoJuegoMemotest"
             class="form-check-input"
             type="checkbox"
             value="memotest"
@@ -89,7 +88,7 @@
         </div>
         <div class="form-check">
           <input
-          formControlName="nuevoJuegoTres"
+            formControlName="nuevoJuegoPPT"
             class="form-check-input"
             type="checkbox"
             value="ppt"
@@ -99,22 +98,28 @@
             Piedra, papel o tijera
           </label>
         </div>
+        <span *ngIf="juegoNuevoValido" class="campo-requerido">
+          {{ juegoNuevoValido }}</span
+        >
       </div>
       <div class="col-sm mb-3">
         <label class="form-label">¿Qué juego te gustó más? </label>
         <div class="form-check">
           <input
+            formControlName="juegoFavorito"
             class="form-check-input"
             type="radio"
             name="juegoFavorito"
             id="opcion1"
             value="ahorcado"
             checked
+            required
           />
           <label class="form-check-label" for="opcion1"> Ahorcado </label>
         </div>
         <div class="form-check">
           <input
+            formControlName="juegoFavorito"
             class="form-check-input"
             type="radio"
             name="juegoFavorito"
@@ -125,6 +130,7 @@
         </div>
         <div class="form-check">
           <input
+            formControlName="juegoFavorito"
             class="form-check-input"
             type="radio"
             name="juegoFavorito"
@@ -135,6 +141,7 @@
         </div>
         <div class="form-check">
           <input
+            formControlName="juegoFavorito"
             class="form-check-input"
             type="radio"
             name="juegoFavorito"
@@ -148,9 +155,14 @@
       </div>
       <div class="col-sm mb-3">
         <label class="form-label">¿Recomendarías esta página?</label>
-        <select style="width: 10rem" class="form-select" id="recomendacion">
-          <option value="1" selected>SI</option>
-          <option value="2">NO</option>
+        <select
+          style="width: 10rem"
+          class="form-select"
+          id="recomendacion"
+          formControlName="recomiendaPagina"
+        >
+          <option value="si" selected>SI</option>
+          <option value="no">NO</option>
         </select>
       </div>
     </div>

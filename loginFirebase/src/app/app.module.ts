@@ -23,6 +23,7 @@ import { JuegosRoutingModule } from './components/juegos/juegos-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NumToArrPipe } from './num-to-arr.pipe';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
         (module) => module.JuegosRoutingModule
       ),
   },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
@@ -57,6 +59,7 @@ const appRoutes: Routes = [
     MiJuegoComponent,
     NumToArrPipe,
     EncuestaComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

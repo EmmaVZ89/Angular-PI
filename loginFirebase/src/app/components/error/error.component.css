@@ -1,0 +1,20 @@
+.pagina-error {
+  background: rgb(179, 226, 231);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-mensaje > h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.contenedor-mensaje > img {
+  width: 20rem;
+  display: block;
+  margin: 0 auto;
+}
