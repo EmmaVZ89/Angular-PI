@@ -1,6 +1,9 @@
 <div class="body">
   <div class="container" *ngIf="userLogged | async">
-    <div class="contenedor-bienvenida">
+    <div *ngIf="loading">
+      <img class="spinner" src="../../../assets/loader.gif" alt="spinner" />
+    </div>
+    <div *ngIf="!loading" class="contenedor-bienvenida view-from-right">
       <h1>Hola mi nombre es Emmanuel Zelarayan</h1>
       <img
         class="view-from-right"

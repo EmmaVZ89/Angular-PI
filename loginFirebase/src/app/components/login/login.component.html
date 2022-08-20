@@ -1,42 +1,57 @@
 <body>
-  <div class="container" [ngClass]="animacion ? 'view-from-right' : ''">
-    <div class="card text-center">
-      <div class="card-header form-estilos fondo-des">
-        <h3><b>INICIO DE SESIÓN</b></h3>
-      </div>
-      <div class="card-body p-4 form-estilos fondo-des">
-        <label style="float: left" class="mt-2">Email</label>
-        <input
-          class="form-control"
-          type="email"
-          placeholder="Email"
-          [(ngModel)]="usuario.email"
-        />
-        <p *ngIf="logError" class="error-login">* Debe ingresar un email valido.</p>
-        <label style="float: left" class="mt-2">Password</label>
-        <input
-          class="form-control"
-          type="password"
-          placeholder="Password"
-          [(ngModel)]="usuario.password"
-        />
-        <p *ngIf="logError" class="error-login">* Debe ingresar un password valido.</p>
-        <button
-          style="width: 100%"
-          class="btn btn-primary mt-2"
-          (click)="ingresar()"
-        >
-          Ingresar
-        </button>
-        <button
-          style="width: 100%"
-          class="btn btn-warning mt-2"
-          (click)="cargarInvitado()"
-        >
-          Ingresar como invitado
-        </button>
-        <label>¿Aun no tienes cuenta? <a href="/registro"> Registrarse</a></label>
+  <section class="contenedor-login">
+    <div *ngIf="loading">
+      <img class="spinner" src="../../../assets/loader.gif" alt="spinner" />
+    </div>
+    <div
+      *ngIf="!loading"
+      class="container"
+      [ngClass]="animacion ? 'view-from-right' : ''"
+    >
+      <div class="card text-center">
+        <div class="card-header form-estilos fondo-des">
+          <h3><b>INICIO DE SESIÓN</b></h3>
+        </div>
+        <div class="card-body p-4 form-estilos fondo-des">
+          <label style="float: left" class="mt-2">Email</label>
+          <input
+            class="form-control"
+            type="email"
+            placeholder="Email"
+            [(ngModel)]="usuario.email"
+          />
+          <p *ngIf="logError" class="error-login">
+            * Debe ingresar un email valido.
+          </p>
+          <label style="float: left" class="mt-2">Password</label>
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Password"
+            [(ngModel)]="usuario.password"
+          />
+          <p *ngIf="logError" class="error-login">
+            * Debe ingresar un password valido.
+          </p>
+          <button
+            style="width: 100%"
+            class="btn btn-primary mt-2"
+            (click)="ingresar()"
+          >
+            Ingresar
+          </button>
+          <button
+            style="width: 100%"
+            class="btn btn-warning mt-2"
+            (click)="cargarInvitado()"
+          >
+            Ingresar como invitado
+          </button>
+          <label
+            >¿Aun no tienes cuenta? <a href="/registro"> Registrarse</a></label
+          >
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </body>

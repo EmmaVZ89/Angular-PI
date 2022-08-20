@@ -1,13 +1,15 @@
 <div class="body">
   <div class="container" *ngIf="userLogged | async">
-    <div class="contenedor-bienvenida fondo-des view-from-right">
-      <h1>Bienvenido ...............................</h1>
-      <h3>Lorem ipsum, dolor sit</h3>
-      <img
-        src="../../../assets/link-1.png"
-        alt="imagen home"
-      />
+    <div *ngIf="loading">
+      <img class="spinner" src="../../../assets/loader.gif" alt="spinner" />
     </div>
-    <button class="view-from-right" (click)="irAQuienSoy()">Sobre mi</button>
+    <div *ngIf="!loading">
+      <div class="contenedor-bienvenida fondo-des view-from-right">
+        <h1>Bienvenido ...............................</h1>
+        <h3>Lorem ipsum, dolor sit</h3>
+        <img src="../../../assets/link-1.png" alt="imagen home" />
+      </div>
+      <button class="view-from-right" (click)="irAQuienSoy()">Sobre mi</button>
+    </div>
   </div>
 </div>

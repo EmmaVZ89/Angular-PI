@@ -7,9 +7,16 @@
   padding-top: 2rem;
 }
 
+.spinner {
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .contenedor-bienvenida {
   width: fit-content;
-  /* margin-top: 2rem; */
   margin-left: auto;
   margin-right: auto;
   color: white;
@@ -17,6 +24,7 @@
   padding-right: 1rem;
   border-radius: 10px;
   box-shadow: 0 0 8px black;
+  background: rgba(0, 0, 0, 0.60);
 }
 
 .contenedor-bienvenida > img {
@@ -26,13 +34,6 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
-}
-
-.fondo-des {
-  background-image: url("../../../assets/fondo-login-des2.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
 }
 
 .view-from-right {

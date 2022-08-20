@@ -13,17 +13,23 @@ export class RegistroComponent implements OnInit {
     password: '',
   };
   userLogged = this.authService.getUserLogged();
+  loading: boolean;
   animacion: boolean = true;
   mensajeRespuesta: boolean | string = false;
   isLogged: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+    this.loading = true;
+  }
 
   ngOnInit(): void {
     this.userLogged.subscribe((res) => {
       if (res !== null) {
         this.router.navigate(['/home']);
       }
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
     });
   }
 

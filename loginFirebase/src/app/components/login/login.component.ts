@@ -13,23 +13,29 @@ export class LoginComponent implements OnInit {
     password: '',
   };
   userLogged = this.authService.getUserLogged();
-  animacion : boolean = true;
+  loading: boolean;
+  animacion: boolean = true;
   logError = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+    this.loading = true;
+  }
 
   ngOnInit(): void {
     this.userLogged.subscribe((res) => {
-      if(res !== null){
+      if (res !== null) {
         this.router.navigate(['/home']);
       }
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
     });
   }
 
   ingresar() {
     const { email, password } = this.usuario;
     this.authService.login(email, password).then((res) => {
-      if(res === null) {
+      if (res === null) {
         this.logError = true;
       }
       console.log('Usuario logueado: ', res);
@@ -43,9 +49,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  cargarInvitado(){
-    this.usuario.email = "invitado@invitado.com";
-    this.usuario.password = "invitado1234";
+  cargarInvitado() {
+    this.usuario.email = 'invitado@invitado.com';
+    this.usuario.password = 'invitado1234';
   }
 
   obtenerUsuarioLogueado() {
